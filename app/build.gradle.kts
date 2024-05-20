@@ -76,5 +76,13 @@ dependencies {
 
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
+    //system ui controller
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
+
+    // icon extened
+    implementation ("androidx.compose.material:material-icons-extended:1.6.7")
+    implementation("io.coil-kt:coil-compose:2.1.0")
+
+
 
 }

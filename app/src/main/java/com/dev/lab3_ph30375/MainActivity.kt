@@ -20,6 +20,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.dev.lab3_ph30375.lab4.Bai1Lab
+import com.dev.lab3_ph30375.lab4.Bai2Lab4
+import com.dev.lab3_ph30375.lab4.Bai3Lab4
 import com.dev.lab3_ph30375.ui.theme.Lab3_ph30375Theme
 
 class MainActivity : ComponentActivity() {
@@ -33,9 +36,12 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     var navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = "bt5") {
+                    NavHost(navController = navController, startDestination = "menulab4") {
                         composable("menu") {
                             Menu(navController)
+                        }
+                        composable("menulab4") {
+                            MenuLab4(navController)
                         }
                         composable("bai1") {
                             Bai1()
@@ -50,6 +56,15 @@ class MainActivity : ComponentActivity() {
                         composable("bt5") {
 //
                             BT5()
+                        }
+                        composable("bt6") {
+                            Bai1Lab()
+                        }
+                        composable("bt7") {
+                            Bai2Lab4()
+                        }
+                        composable("bt8") {
+                            Bai3Lab4()
                         }
                     }
                 }
@@ -89,9 +104,54 @@ class MainActivity : ComponentActivity() {
                 content = {
                     Text("Bai 2")
                 })
-            Button(onClick = { navController.navigate("bai3") }, modifier = Modifier.padding(16.dp), content = {
-                Text("Bai 3")
-            })
+            Button(
+                onClick = { navController.navigate("bai3") },
+                modifier = Modifier.padding(16.dp),
+                content = {
+                    Text("Bai 3")
+                })
+
+        }
+    }
+
+    @Composable
+    fun MenuLab4(navController: NavController) {
+        Column(
+            Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Menu Lab 4",
+                modifier = Modifier.padding(16.dp),
+//            style = MaterialTheme.typography.bodyLarge,
+//            color = MaterialTheme.colorScheme.onPrimary
+            )
+            Button(
+                onClick = {
+                    // navigate to Bai1
+                    navController.navigate("bt6")
+
+
+                },
+                modifier = Modifier.padding(16.dp),
+                content = {
+                    Text("Bai 1")
+                },
+
+                )
+            Button(
+                onClick = { navController.navigate("bt7") },
+                modifier = Modifier.padding(16.dp),
+                content = {
+                    Text("Bai 2")
+                })
+            Button(
+                onClick = { navController.navigate("bt8") },
+                modifier = Modifier.padding(16.dp),
+                content = {
+                    Text("Bai 3")
+                })
 
         }
     }
